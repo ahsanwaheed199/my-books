@@ -1,13 +1,15 @@
 import React from "react";
-import { search, update } from "../BooksAPI";
+import { update } from "../BooksAPI";
 import Book from "./book";
 
-const Search = ({ searchData,setBooksData, booksData }) => {
-  const handleCallback = (childData, e) => {
-    update(childData, e);
-    childData.shelf = e;
-    const newSerchData = booksData.filter((val) => val.id !== childData.id);
-    setBooksData([...newSerchData, childData]);
+const Search = ({ searchData, setBooksData, booksData }) => {
+  const selectedValue = (dataFromChildComp, valueFromChildComp) => {
+    update(dataFromChildComp, valueFromChildComp);
+    dataFromChildComp.shelf = valueFromChildComp;
+    const newSerchData = booksData.filter(
+      (val) => val.id !== dataFromChildComp.id
+    );
+    setBooksData([...newSerchData, dataFromChildComp]);
   };
 
   if (searchData && searchData.error) {
@@ -22,7 +24,7 @@ const Search = ({ searchData,setBooksData, booksData }) => {
             searchData.map((book, ind) => {
               return (
                 <li key={ind}>
-                  <Book book={book} handler={handleCallback} />
+                  <Book book={book} selectedValue={selectedValue} />
                 </li>
               );
             })}
