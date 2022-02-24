@@ -1,5 +1,5 @@
 import React from "react";
-const Book = ({ book, handler }) => {
+const Book = ({ book, selectedValue }) => {
   return (
     <div className="book">
       <div className="book-top">
@@ -14,7 +14,7 @@ const Book = ({ book, handler }) => {
         <div className="book-shelf-changer">
           <select
             value={book.shelf}
-            onChange={(e) => handler(book, e.target.value)}
+            onChange={(e) => selectedValue(book, e.target.value)}
           >
             <option value="move" disabled>
               Move to...
