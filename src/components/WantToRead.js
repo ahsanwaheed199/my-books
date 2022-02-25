@@ -1,5 +1,5 @@
 import React from "react";
-import Book from "./Book";
+import Book from "./book";
 
 const WantToRead = ({ booksData, selectedValue }) => {
   return (
@@ -13,6 +13,7 @@ const WantToRead = ({ booksData, selectedValue }) => {
                 if (val.shelf === "wantToRead") {
                   return val;
                 }
+                return null;
               })
               .map((book, ind) => {
                 return (

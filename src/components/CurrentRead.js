@@ -1,5 +1,5 @@
 import React from "react";
-import Book from "./Book";
+import Book from "./book";
 
 const CurrentRead = ({ booksData, selectedValue }) => {
   return (
@@ -13,6 +13,7 @@ const CurrentRead = ({ booksData, selectedValue }) => {
                 if (val.shelf === "currentlyReading") {
                   return val;
                 }
+                return null;
               })
               .map((book, ind) => {
                 return (

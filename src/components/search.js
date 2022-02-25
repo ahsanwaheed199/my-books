@@ -1,6 +1,6 @@
 import React from "react";
 import { update } from "../BooksAPI";
-import Book from "./Book";
+import Book from "./book";
 
 const Search = ({ searchData, setBooksData, booksData }) => {
   const selectedValue = (data, value) => {

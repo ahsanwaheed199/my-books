@@ -21,9 +21,6 @@ const BooksApp = () => {
 
   useEffect(
     () => {
-      getAll()
-        .then((res) => setBooksData(res))
-        .catch((err) => console.log(err));
       async function fetchData() {
         let response = await search(searching);
         setSearchData(response);
@@ -32,6 +29,13 @@ const BooksApp = () => {
     },
     [searching]
   );
+  useEffect(() => {
+    async function getData() {
+      let response = await getAll();
+      setBooksData(response);
+    }
+    getData();
+  }, []);
 
   return (
     <Router>
