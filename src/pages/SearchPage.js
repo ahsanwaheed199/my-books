@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Search from "../components/search";
+import Search from "../components/Search";
 
 const SearchPage = ({
   searchData,
@@ -30,9 +30,6 @@ const SearchPage = ({
               setBooksData={setBooksData}
             />
           </div>
-        </div>
-        <div className="search-books-results">
-          <ol className="books-grid" />
         </div>
       </div>
     </div>

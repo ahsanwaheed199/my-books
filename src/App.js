@@ -11,10 +11,10 @@ const BooksApp = () => {
   const [searching, setSearching] = useState("");
   const [searchData, setSearchData] = useState([]);
 
-  const selectedValue = (dataFromChildComp, valueFromChildComp) => {
-    update(dataFromChildComp, valueFromChildComp);
-    const updated = booksData.find((book) => book.id === dataFromChildComp.id);
-    updated.shelf = valueFromChildComp;
+  const selectedValue = (data, value) => {
+    update(data, value);
+    const newData = booksData.find((book) => book.id === data.id);
+    newData.shelf = value;
     const res = [...booksData];
     setBooksData(res);
   };

@@ -1,15 +1,13 @@
 import React from "react";
 import { update } from "../BooksAPI";
-import Book from "./book";
+import Book from "./Book";
 
 const Search = ({ searchData, setBooksData, booksData }) => {
-  const selectedValue = (dataFromChildComp, valueFromChildComp) => {
-    update(dataFromChildComp, valueFromChildComp);
-    dataFromChildComp.shelf = valueFromChildComp;
-    const newSerchData = booksData.filter(
-      (val) => val.id !== dataFromChildComp.id
-    );
-    setBooksData([...newSerchData, dataFromChildComp]);
+  const selectedValue = (data, value) => {
+    update(data, value);
+    data.shelf = value;
+    const newSerchData = booksData.filter((val) => val.id !== data.id);
+    setBooksData([...newSerchData, data]);
   };
 
   if (searchData && searchData.error) {
@@ -18,7 +16,7 @@ const Search = ({ searchData, setBooksData, booksData }) => {
 
   return (
     <div>
-      <div className="bookshelf-books">
+      <div className="search-books-results">
         <ol className="books-grid">
           {searchData &&
             searchData.map((book, ind) => {
